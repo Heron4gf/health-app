@@ -1,0 +1,68 @@
+.hero-card {
+  background-color: #eef5e6;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #dcebd0;
+}
+
+.hero-text h2 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+.hero-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.face {
+  font-size: 40px;
+  color: var(--primary);
+}
+
+.med-item {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.med-item div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.med-item .material-icons {
+  color: #aaa;
+}
+
+.btn-status {
+  color: white;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.green {
+  background-color: var(--success);
+}
+
+.red {
+  background-color: var(--danger);
+}

@@ -1,0 +1,109 @@
+.calendar-wrapper {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 280px; 
+}
+
+.month-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+::ng-deep ngb-datepicker {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+::ng-deep .ngb-dp-header {
+  display: none;
+}
+
+::ng-deep .ngb-dp-weekdays {
+  border-bottom: none;
+  background: transparent;
+  justify-content: center;
+}
+
+::ng-deep .ngb-dp-weekday {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+  font-style: normal;
+}
+
+::ng-deep .ngb-dp-week {
+  border-radius: 0;
+  justify-content: center;
+}
+
+::ng-deep .ngb-dp-day {
+  height: 45px;
+  width: 100%;
+}
+
+::ng-deep .ngb-dp-day.outside {
+  opacity: 0.4;
+}
+
+::ng-deep .ngb-dp-day:nth-child(1),
+::ng-deep .ngb-dp-day:nth-child(7) {
+  background-color: transparent;
+}
+
+.custom-day-wrapper {
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #333;
+  position: relative;
+  width: 100%;
+}
+
+.custom-day-wrapper.selected {
+  background-color: black;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  margin: auto;
+}
+
+.day-number {
+  display: block;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--danger, red);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 5px;
+}
+
+::ng-deep .ngb-dp-day:focus {
+  outline: none;
+}
+
+::ng-deep .ngb-dp-day.focused {
+  background-color: transparent;
+}

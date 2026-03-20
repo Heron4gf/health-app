@@ -1,0 +1,42 @@
+<div class="screen">
+  <div class="top-actions">
+    <div class="action-card">
+      <span class="material-icons">mic</span>
+      <small>ASSISTENTE VOCALE</small>
+    </div>
+    <div class="action-card">
+      <span class="material-icons">warning</span>
+      <small>FARMACO CHECK</small>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button routerLink="/home" routerLinkActive="active">
+      <span class="material-icons">menu_book</span> Home
+    </button>
+    <button routerLink="/calendar" routerLinkActive="active">
+      <span class="material-icons">calendar_today</span> Calendario
+    </button>
+  </div>
+
+  <ng-content></ng-content>
+
+  <br>
+
+  <div class="action-card big-button">
+    <span class="material-icons">medication</span>
+    <span>INSERISCI FARMACO</span>
+  </div>
+
+  <div class="bottom-nav">
+    <div routerLink="/home" routerLinkActive="active">
+      <span class="material-icons">home</span><small>Home</small>
+    </div>
+    <div routerLink="/stats" routerLinkActive="active">
+      <span class="material-icons">trending_up</span><small>Progressi</small>
+    </div>
+    <div>
+      <span class="material-icons">settings</span><small>Opzioni</small>
+    </div>
+  </div>
+</div>

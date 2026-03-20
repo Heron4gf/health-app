@@ -1,0 +1,27 @@
+<app-main-layout>
+  <div class="calendar-wrapper">
+    <div class="month-header">
+      <span class="material-icons clickable" (click)="navigatePrev()">chevron_left</span>
+      <h3>{{ getMonthName() }}</h3>
+      <span class="material-icons clickable" (click)="navigateNext()">chevron_right</span>
+    </div>
+
+    <ngb-datepicker 
+      #dp
+      [(ngModel)]="selectedDate"
+      [displayMonths]="1"
+      [dayTemplate]="customDay"
+      [navigation]="'none'"
+      [showWeekNumbers]="false"
+      [startDate]="displayedDate"
+      (dateSelect)="onDateSelect($event)">
+    </ngb-datepicker>
+
+    <ng-template #customDay let-date let-selected="selected">
+      <div class="custom-day-wrapper" [class.selected]="selected">
+        <span class="day-number">{{ date.day }}</span>
+        <div *ngIf="hasEvent(date)" class="dot"></div>
+      </div>
+    </ng-template>
+  </div>
+</app-main-layout>
