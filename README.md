@@ -61,9 +61,9 @@ Se sei uno sviluppatore o vuoi testare l'applicazione localmente:
 
 3. **Apri il browser** e vai all'indirizzo: `http://localhost:4200/`
 
-## Supporto e Assistenza
+## Licenza
 
-Per qualsiasi domanda o problema con l'utilizzo dell'applicazione, contatta il tuo medico curante o il team di assistenza.
+Questo progetto è rilasciato sotto licenza MIT.
 
 ---
 
