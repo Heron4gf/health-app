@@ -40,10 +40,10 @@ HealthApp è un'applicazione web intuitiva e facile da usare pensata per aiutare
 
 ## Tecnologie Utilizzate
 
-- **Angular**: Framework frontend per un'esperienza utente moderna e reattiva
-- **Bootstrap**: Libreria CSS per un design responsive e accattivante
-- **Angular Calendar**: Componenti per la gestione del calendario e degli eventi
-- **TypeScript**: Linguaggio di programmazione per una maggiore sicurezza e manutenibilità
+- **[Angular](https://angular.dev/)**: Framework frontend per un'esperienza utente moderna e reattiva
+- **[Bootstrap](https://getbootstrap.com/)**: Libreria CSS per un design responsive e accattivante
+- **[Angular Calendar](https://www.npmjs.com/package/angular-calendar)**: Componenti per la gestione del calendario e degli eventi
+- **[TypeScript](https://www.typescriptlang.org/)**: Linguaggio di programmazione per una maggiore sicurezza e manutenibilità
 
 ## Avviare l'Applicazione
 
