@@ -1,59 +1,70 @@
-# HealthApp
+# HealthApp - Applicazione per la Gestione della Terapia
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+## Cos'è HealthApp?
 
-## Development server
+HealthApp è un'applicazione web intuitiva e facile da usare pensata per aiutare i pazienti a gestire in modo semplice e organizzato la propria terapia quotidiana. Con un'interfaccia chiara e colorata, l'app ti accompagna passo dopo passo nel monitoraggio dei farmaci e nella cura della tua salute.
 
-To start a local development server, run:
+## Caratteristiche Principali
 
-```bash
-ng serve
-```
+### 🏠 **Home - La tua Dashboard Personale**
+- **Riepilogo della tua salute**: Visualizza immediatamente il tuo livello di aderenza alla terapia (es: "Stai andando bene! Aderenza terapia > 70%")
+- **Stato dei farmaci**: Controlla rapidamente quali farmaci hai assunto e quali sono ancora da prendere
+- **Facile da capire**: Icone intuitive e colori che indicano lo stato (verde = assunto, rosso = da assumere)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 📅 **Calendario - Organizza la tua Terapia**
+- **Visualizzazione mensile**: Naviga tra i mesi per vedere la tua storia terapeutica
+- **Eventi giornalieri**: Puntini colorati che indicano i giorni con attività terapeutiche
+- **Selezione intuitiva**: Clicca su una data per vedere i dettagli del giorno
 
-## Code scaffolding
+### 🔐 **Autenticazione Semplice**
+- **Accesso rapido**: Tre opzioni di accesso (Paziente, Caregiver, Farmacia)
+- **Interfaccia chiara**: Pulsanti grandi e testi esplicativi
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🎯 **Funzionalità Aggiuntive**
+- **Assistente Vocale**: Comandi vocali per una gestione ancora più facile
+- **Farmaco Check**: Verifica interazioni e informazioni sui farmaci
+- **Inserimento Farmaci**: Aggiungi nuovi farmaci alla tua terapia con un semplice click
 
-```bash
-ng generate component component-name
-```
+## Come Funziona
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. **Accedi all'applicazione** scegliendo il tuo ruolo (Paziente, Caregiver o Farmacia)
+2. **Visualizza la tua Home** per controllare l'aderenza alla terapia e lo stato dei farmaci giornalieri
+3. **Usa il Calendario** per vedere la tua storia terapeutica e pianificare le assunzioni future
+4. **Gestisci i tuoi farmaci** attraverso le funzionalità di inserimento e controllo
 
-```bash
-ng generate --help
-```
+## Per Chi è Pensata
 
-## Building
+- **Pazienti** che vogliono tenere sotto controllo la propria terapia quotidiana
+- **Caregiver** che assistono persone con terapie complesse
+- **Farmacisti** che necessitano di strumenti per monitorare l'aderenza terapeutica
 
-To build the project run:
+## Tecnologie Utilizzate
 
-```bash
-ng build
-```
+- **Angular**: Framework frontend per un'esperienza utente moderna e reattiva
+- **Bootstrap**: Libreria CSS per un design responsive e accattivante
+- **Angular Calendar**: Componenti per la gestione del calendario e degli eventi
+- **TypeScript**: Linguaggio di programmazione per una maggiore sicurezza e manutenibilità
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Avviare l'Applicazione
 
-## Running unit tests
+Se sei uno sviluppatore o vuoi testare l'applicazione localmente:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+1. **Installa le dipendenze**:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng test
-```
+2. **Avvia il server di sviluppo**:
+   ```bash
+   npm start
+   ```
 
-## Running end-to-end tests
+3. **Apri il browser** e vai all'indirizzo: `http://localhost:4200/`
 
-For end-to-end (e2e) testing, run:
+## Supporto e Assistenza
 
-```bash
-ng e2e
-```
+Per qualsiasi domanda o problema con l'utilizzo dell'applicazione, contatta il tuo medico curante o il team di assistenza.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Nota**: Questa applicazione è pensata come strumento di supporto alla gestione della terapia e non sostituisce il parere medico professionale.
