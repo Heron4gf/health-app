@@ -1,14 +1,10 @@
 <div class="overlay">
   <div class="header">
-    <button class="back-btn" (click)="close()">
-      <span class="material-icons">arrow_back</span>
-    </button>
     <h2 class="title">Opzioni</h2>
     <span class="spacer"></span>
   </div>
 
   <div class="sections">
-    <!-- Profilo -->
     <div class="section">
       <div class="section-label">Profilo</div>
       <div class="option-row">
@@ -25,7 +21,6 @@
       </div>
     </div>
 
-    <!-- Notifiche -->
     <div class="section">
       <div class="section-label">Notifiche</div>
       <div class="option-row">
@@ -44,7 +39,6 @@
       </div>
     </div>
 
-    <!-- Terapia -->
     <div class="section">
       <div class="section-label">Terapia</div>
       <div class="option-row">
@@ -57,14 +51,13 @@
       </div>
     </div>
 
-    <!-- App -->
     <div class="section">
       <div class="section-label">App</div>
       <div class="option-row">
         <span class="option-label">Versione</span>
         <span class="option-value">1.0.0</span>
       </div>
-      <div class="option-row logout-row" (click)="close()">
+      <div class="option-row logout-row" (click)="logout()">
         <span class="option-label logout-text">Logout</span>
         <span class="material-icons logout-icon">exit_to_app</span>
       </div>

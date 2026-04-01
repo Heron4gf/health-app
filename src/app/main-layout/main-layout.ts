@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
@@ -15,6 +15,7 @@ import { OpzioniPazienteComponent } from '../opzioni/opzioni-paziente.component'
 })
 export class MainLayoutComponent {
   private userService = inject(UserService);
+  public router = inject(Router);
 
   showFarmacoCheck = false;
   showResultCard = false;
@@ -25,8 +26,29 @@ export class MainLayoutComponent {
     return this.userService.getRole() === 'patient';
   }
 
+  isRoute(route: string): boolean {
+    return this.router.url === route;
+  }
+
+  goHome(): void {
+    this.resetModals();
+    const route = this.isPatient() ? '/home' : '/caregiver';
+    this.router.navigate([route]);
+  }
+
   openContattiModal(): void {
+    this.resetModals();
     this.showContatti = true;
+  }
+
+  openOpzioniModal(): void {
+    this.resetModals();
+    this.showOpzioni = true;
+  }
+
+  resetModals(): void {
+    this.showContatti = false;
+    this.showOpzioni = false;
   }
 
   onScanned(): void {

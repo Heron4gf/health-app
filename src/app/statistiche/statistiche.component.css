@@ -94,8 +94,13 @@ h2 {
 }
 
 .bp-row.yellow {
-  background: rgba(255, 152, 0, 0.15);
-  border-left: 3px solid #ff9800;
+  background: #ffb74d;
+  border-left: 3px solid #e65100;
+  color: #000;
+}
+
+.bp-row.yellow .bp-value {
+  color: #000;
 }
 
 .bp-row.red {

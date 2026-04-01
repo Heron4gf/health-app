@@ -25,27 +25,25 @@
       <span>FARMACO CHECK</span>
     </div>
 
-    <div class="bottom-nav">
-      <div routerLink="/home" routerLinkActive="active">
+    <div class="bottom-nav" style="position: relative; z-index: 10000;">
+      <div (click)="goHome()" [class.active]="(isRoute('/home') || isRoute('/caregiver')) && !showContatti && !showOpzioni">
         <span class="material-icons">home</span><small>Home</small>
       </div>
-      <div (click)="openContattiModal()">
+      <div (click)="openContattiModal()" [class.active]="showContatti">
         <span class="material-icons">contacts</span><small>Contatti</small>
       </div>
-      <div (click)="showOpzioni = true">
+      <div (click)="openOpzioniModal()" [class.active]="showOpzioni">
         <span class="material-icons">settings</span><small>Opzioni</small>
       </div>
     </div>
   </div>
 
-  <!-- Farmaco Check Scanner - outside .screen to prevent clipping -->
   <app-farmaco-check
     *ngIf="showFarmacoCheck"
     (scanned)="onScanned()"
     (closed)="showFarmacoCheck = false">
   </app-farmaco-check>
 
-  <!-- Drug Result Card - outside .screen to prevent clipping -->
   <div class="result-card-overlay" *ngIf="showResultCard">
     <div class="result-card">
       <button class="close-btn" (click)="closeResultCard()">✕</button>
@@ -79,9 +77,7 @@
     </div>
   </div>
 
-  <!-- Contatti Bottom Sheet - outside .screen to prevent clipping -->
   <app-contatti *ngIf="showContatti" (closed)="showContatti = false"></app-contatti>
 
-  <!-- Opzioni overlay - outside .screen to prevent clipping -->
   <app-opzioni-paziente *ngIf="showOpzioni" (closed)="showOpzioni = false"></app-opzioni-paziente>
 </div>

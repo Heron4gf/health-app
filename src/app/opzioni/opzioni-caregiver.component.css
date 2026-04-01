@@ -2,9 +2,11 @@
   position: fixed;
   inset: 0;
   z-index: 999;
-  background: var(--bg-color);
+  background: var(--bg-color, #121212);
   overflow-y: auto;
   padding: 20px;
+  padding-bottom: 80px;
+  color: #fff;
 }
 
 .header {
@@ -12,27 +14,7 @@
   align-items: center;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #eee;
-}
-
-.back-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  color: var(--text-dark);
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 50%;
-}
-
-.back-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.back-btn .material-icons {
-  font-size: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .title {
@@ -41,7 +23,7 @@
   margin: 0;
   font-size: 18px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: #fff;
 }
 
 .spacer {
@@ -55,16 +37,16 @@
 }
 
 .section {
-  background: var(--white);
-  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .section-label {
   font-size: 11px;
   font-weight: 600;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 12px 16px 6px;
@@ -75,18 +57,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 16px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .option-label {
   font-size: 14px;
-  color: var(--text-dark);
+  color: #fff;
 }
 
 .option-value {
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .patient-label {
@@ -97,10 +79,9 @@
 
 .patient-label .person-icon {
   font-size: 20px;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Toggle Switch */
 .toggle-switch {
   position: relative;
   display: inline-block;
@@ -118,7 +99,7 @@
   position: absolute;
   cursor: pointer;
   inset: 0;
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 24px;
   transition: 0.2s;
 }
@@ -136,7 +117,7 @@
 }
 
 .toggle-switch input:checked + .slider {
-  background-color: var(--success);
+  background-color: #4caf50;
 }
 
 .toggle-switch input:checked + .slider:before {
@@ -147,22 +128,21 @@
   cursor: default;
 }
 
-/* Logout Row */
 .logout-row {
   cursor: pointer;
-  background: #fff8f8;
+  background: rgba(244, 67, 54, 0.1);
 }
 
 .logout-row:hover {
-  background: #fff0f0;
+  background: rgba(244, 67, 54, 0.2);
 }
 
 .logout-text {
-  color: var(--danger) !important;
+  color: #f44336 !important;
   font-weight: 600;
 }
 
 .logout-icon {
-  color: var(--danger);
+  color: #f44336;
   font-size: 20px;
 }
