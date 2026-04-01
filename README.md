@@ -48,6 +48,8 @@ Interfaccia per la configurazione delle opzioni dell'applicazione.
 
 Una vista mensile permette di navigare nel tempo e vedere i giorni in cui i farmaci sono stati assunti o mancati. I giorni vengono evidenziati visivamente per facilitare l'identificazione di eventuali lacune nella terapia.
 
+![Calendario](images/calendar.png)
+
 ### Dashboard caregiver
 
 Il caregiver ha una panoramica sui pazienti assistiti, monitora l'aderenza di ciascuno e può verificare lo stato delle assunzioni giornaliere.
