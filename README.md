@@ -26,20 +26,45 @@ L'applicazione supporta tre figure distinte, ognuna con la propria vista dedicat
 
 ## Funzionalità principali
 
-### Dashboard personale
+### Accesso per ruolo
+
+Al login, l'utente sceglie il proprio ruolo (Paziente, Caregiver o Farmacista) e viene indirizzato all'interfaccia più adatta alle proprie esigenze.
+
+![Accesso per ruolo](images/auth.png)
+
+### Dashboard paziente
+
 All'apertura dell'app, ogni utente vede immediatamente un riepilogo dello stato della terapia. Il livello di aderenza è mostrato con un indicatore colorato (verde, giallo o rosso) per capire a colpo d'occhio se la terapia viene seguita correttamente.
 
+![Dashboard paziente](images/home.png)
+
+### Opzioni e impostazioni
+
+Interfaccia per la configurazione delle opzioni dell'applicazione.
+
+![Opzioni e impostazioni](images/options.png)
+
 ### Calendario terapeutico
+
 Una vista mensile permette di navigare nel tempo e vedere i giorni in cui i farmaci sono stati assunti o mancati. I giorni vengono evidenziati visivamente per facilitare l'identificazione di eventuali lacune nella terapia.
 
+### Dashboard caregiver
+
+Il caregiver ha una panoramica sui pazienti assistiti, monitora l'aderenza di ciascuno e può verificare lo stato delle assunzioni giornaliere.
+
+![Dashboard caregiver](images/caregiver_home.png)
+
 ### Statistiche per il caregiver
+
 Il caregiver può visualizzare, paziente per paziente, l'andamento della pressione sanguigna negli ultimi sette giorni e l'aderenza settimanale ai farmaci. Ogni farmaco è tracciato giorno per giorno, con un riepilogo visivo immediato.
 
+![Statistiche caregiver](images/statistiche_caregiver.png)
+
 ### Farmaco Check (scansione)
+
 Tramite la fotocamera del dispositivo è possibile avviare una scansione per identificare un farmaco. Dopo la scansione, viene mostrata una scheda con le informazioni rilevanti. Questa funzione è pensata per semplificare la verifica e la registrazione delle assunzioni.
 
-### Accesso per ruolo
-Al login, l'utente sceglie il proprio ruolo (Paziente, Caregiver o Farmacista) e viene indirizzato all'interfaccia più adatta alle proprie esigenze.
+![Farmaco Check - identificazione del farmaco](images/farmaco_check_riconosciuto.png)
 
 ---
 
