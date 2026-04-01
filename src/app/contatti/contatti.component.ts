@@ -28,7 +28,7 @@ export class ContattiComponent {
 
   ngOnInit(): void {
     // Trigger animation on next frame
-    setTimeout(() => this.isVisible = true, 10);
+    setTimeout(() => this.isVisible = true, 50);
   }
 
   close(): void {

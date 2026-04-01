@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
+import { StatisticheComponent } from '../statistiche/statistiche.component';
 
 interface Medication {
   name: string;
@@ -20,7 +21,7 @@ interface Patient {
 @Component({
   selector: 'app-caregiver-home',
   standalone: true,
-  imports: [RouterModule, CommonModule, FarmacoCheckComponent],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent, StatisticheComponent],
   templateUrl: './caregiver-home.html',
   styleUrls: ['./caregiver-home.css']
 })
@@ -28,6 +29,7 @@ export class CaregiverHomeComponent {
   activePatient: number = 0;
   showFarmacoCheck = false;
   showResultCard = false;
+  showStatistiche = false;
 
   patients: Patient[] = [
     {
