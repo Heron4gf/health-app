@@ -1,3 +1,8 @@
+.caregiver-layout-root {
+  position: relative;
+  min-height: 100vh;
+}
+
 .caregiver-dashboard {
   padding-bottom: 90px;
 }

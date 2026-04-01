@@ -1,3 +1,8 @@
+.main-layout-root {
+  position: relative;
+  min-height: 100vh;
+}
+
 /* Result Card Overlay */
 .result-card-overlay {
   position: fixed;

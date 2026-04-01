@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
 import { ContattiComponent } from '../contatti/contatti.component';
+import { OpzioniPazienteComponent } from '../opzioni/opzioni-paziente.component';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterModule, CommonModule, FarmacoCheckComponent, ContattiComponent],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent, ContattiComponent, OpzioniPazienteComponent],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css'
 })
@@ -18,6 +19,7 @@ export class MainLayoutComponent {
   showFarmacoCheck = false;
   showResultCard = false;
   showContatti = false;
+  showOpzioni = false;
 
   isPatient(): boolean {
     return this.userService.getRole() === 'patient';

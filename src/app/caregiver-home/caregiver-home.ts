@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
 import { StatisticheComponent } from '../statistiche/statistiche.component';
+import { OpzioniCaregiverComponent } from '../opzioni/opzioni-caregiver.component';
 
 interface Medication {
   name: string;
@@ -21,7 +22,7 @@ interface Patient {
 @Component({
   selector: 'app-caregiver-home',
   standalone: true,
-  imports: [RouterModule, CommonModule, FarmacoCheckComponent, StatisticheComponent],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent, StatisticheComponent, OpzioniCaregiverComponent],
   templateUrl: './caregiver-home.html',
   styleUrls: ['./caregiver-home.css']
 })
@@ -30,6 +31,7 @@ export class CaregiverHomeComponent {
   showFarmacoCheck = false;
   showResultCard = false;
   showStatistiche = false;
+  showOpzioni = false;
 
   patients: Patient[] = [
     {
