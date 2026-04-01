@@ -1,13 +1,179 @@
-.caregiver-home-container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+.caregiver-dashboard {
+  padding-bottom: 90px;
 }
 
-h1 {
-  margin-bottom: 10px;
+/* Patient Selector */
+.patient-selector {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 10px 0 15px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-p {
-  color: #666;
+.patient-selector::-webkit-scrollbar {
+  display: none;
+}
+
+.patient-card {
+  flex: 0 0 auto;
+  min-width: 120px;
+  background: var(--white);
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-card);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-card .material-icons {
+  font-size: 32px;
+  color: var(--text-light);
+  transition: color 0.2s ease;
+}
+
+.patient-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.patient-card.active {
+  border-color: var(--primary);
+  background: #f0f5e6;
+}
+
+.patient-card.active .material-icons {
+  color: var(--primary);
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  min-height: 100px;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Aderenza color states */
+.stat-aderenza.green {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-color: #a5d6a7;
+}
+
+.stat-aderenza.green .stat-value {
+  color: #2e7d32;
+}
+
+.stat-aderenza.yellow {
+  background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+  border-color: #ffd54f;
+}
+
+.stat-aderenza.yellow .stat-value {
+  color: #f57f17;
+}
+
+.stat-aderenza.red {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border-color: #e57373;
+}
+
+.stat-aderenza.red .stat-value {
+  color: #c62828;
+}
+
+/* Medication List */
+.med-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.med-item {
+  background: var(--white);
+  padding: 15px;
+  border-radius: var(--radius-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.med-item > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.med-item .material-icons {
+  color: #aaa;
+  font-size: 20px;
+}
+
+.btn-status {
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-status:hover {
+  opacity: 0.9;
+}
+
+.btn-status.green {
+  background-color: var(--success);
+}
+
+.btn-status.red {
+  background-color: var(--danger);
+}
+
+.btn-status.yellow {
+  background-color: #ffc107;
+  color: #333;
 }
