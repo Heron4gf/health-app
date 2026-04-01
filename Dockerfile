@@ -29,7 +29,7 @@ COPY --from=build /app/dist ./dist
 
 # Set environment defaults
 ENV PORT=4000
-ENV HOST=localhost
+ENV HOST=0.0.0.0
 ENV NODE_ENV=production
 
 # Expose the application port
