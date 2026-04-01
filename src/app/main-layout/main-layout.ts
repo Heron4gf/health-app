@@ -3,11 +3,12 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
+import { ContattiComponent } from '../contatti/contatti.component';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterModule, CommonModule, FarmacoCheckComponent],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent, ContattiComponent],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css'
 })
@@ -16,14 +17,14 @@ export class MainLayoutComponent {
 
   showFarmacoCheck = false;
   showResultCard = false;
+  showContatti = false;
 
   isPatient(): boolean {
     return this.userService.getRole() === 'patient';
   }
 
   openContattiModal(): void {
-    // TODO: Implement contatti modal open logic
-    console.log('Open contatti modal');
+    this.showContatti = true;
   }
 
   onScanned(): void {

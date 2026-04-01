@@ -76,4 +76,7 @@
       <button class="close-card-btn" (click)="closeResultCard()">Chiudi</button>
     </div>
   </div>
+
+  <!-- Contatti Bottom Sheet -->
+  <app-contatti *ngIf="showContatti" (closed)="showContatti = false"></app-contatti>
 </div>
