@@ -1,0 +1,77 @@
+<div class="overlay">
+  <div class="container">
+    <div class="header">
+      <button class="back-btn" (click)="close()">
+        <span class="material-icons">arrow_back</span> Indietro
+      </button>
+      <h2>Statistiche {{ patientName }}</h2>
+    </div>
+
+    <div *ngIf="stats; else noData">
+      <!-- Section 1: Pressione arteriosa -->
+      <section class="section">
+        <h3 class="section-title">
+          <span class="material-icons">monitor_heart</span>
+          Pressione arteriosa
+        </h3>
+        <div class="bp-table">
+          <div class="bp-row header">
+            <span>Data</span>
+            <span>Pressione</span>
+          </div>
+          <div class="bp-row" *ngFor="let reading of stats.bloodPressure" [class]="getSystolicColor(reading.systolic)">
+            <span class="bp-date">{{ reading.date }}</span>
+            <span class="bp-value">{{ reading.systolic }}/{{ reading.diastolic }}</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Assunzioni farmaci nel tempo -->
+      <section class="section">
+        <h3 class="section-title">
+          <span class="material-icons">medication</span>
+          Assunzioni farmaci nel tempo
+        </h3>
+        <div class="med-grid">
+          <div class="med-row-header">
+            <span></span>
+            <span class="day-col" *ngFor="let day of daysOfWeek">{{ day }}</span>
+          </div>
+          <div class="med-row" *ngFor="let med of stats.medications">
+            <span class="med-name">{{ med.name }}</span>
+            <span class="dot-col" *ngFor="let taken of med.days">
+              <span class="dot" [class.filled]="taken"></span>
+            </span>
+          </div>
+          <div class="legend">
+            <span class="legend-item"><span class="dot filled"></span> Assunto</span>
+            <span class="legend-item"><span class="dot"></span> Mancato</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Andamento aderenza -->
+      <section class="section">
+        <h3 class="section-title">
+          <span class="material-icons">trending_up</span>
+          Andamento aderenza
+        </h3>
+        <div class="adherence-badges">
+          <div class="badge-wrapper" *ngFor="let val of stats.weeklyAdherence; let i = index">
+            <div class="adherence-badge" [class]="getAdherenceBadgeClass(val)">
+              <span class="badge-value">{{ val }}%</span>
+              <span class="badge-label">Settimana {{ i + 1 }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <ng-template #noData>
+      <div class="no-data">
+        <span class="material-icons">info</span>
+        <p>Nessuna statistica disponibile per questo paziente</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

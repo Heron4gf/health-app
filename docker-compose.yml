@@ -1,0 +1,11 @@
+services:
+  health-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - NODE_ENV=production
+    restart: unless-stopped

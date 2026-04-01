@@ -1,0 +1,76 @@
+<div class="overlay">
+  <div class="header">
+    <h2 class="title">Opzioni</h2>
+    <span class="spacer"></span>
+  </div>
+
+  <div class="sections">
+    <div class="section">
+      <div class="section-label">Profilo</div>
+      <div class="option-row">
+        <span class="option-label">Nome</span>
+        <span class="option-value">Dr. Rossi</span>
+      </div>
+      <div class="option-row">
+        <span class="option-label">Ruolo</span>
+        <span class="option-value">Farmacista</span>
+      </div>
+      <div class="option-row">
+        <span class="option-label">Struttura</span>
+        <span class="option-value">Farmacia Centrale, Milano</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Pazienti seguiti</div>
+      <div class="option-row">
+        <span class="option-label patient-label">
+          <span class="material-icons person-icon">person</span>
+          Mario Rossi
+        </span>
+      </div>
+      <div class="option-row">
+        <span class="option-label patient-label">
+          <span class="material-icons person-icon">person</span>
+          Giulia Bianchi
+        </span>
+      </div>
+      <div class="option-row">
+        <span class="option-label patient-label">
+          <span class="material-icons person-icon">person</span>
+          Luca Verdi
+        </span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Notifiche</div>
+      <div class="option-row">
+        <span class="option-label">Alert aderenza critica</span>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="option-row">
+        <span class="option-label">Report settimanale</span>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">App</div>
+      <div class="option-row">
+        <span class="option-label">Versione</span>
+        <span class="option-value">1.0.0</span>
+      </div>
+      <div class="option-row logout-row" (click)="logout()">
+        <span class="option-label logout-text">Logout</span>
+        <span class="material-icons logout-icon">exit_to_app</span>
+      </div>
+    </div>
+  </div>
+</div>

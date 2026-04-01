@@ -1,0 +1,24 @@
+<div class="backdrop" (click)="close()"></div>
+
+<div class="sheet" [class.sheet-visible]="isVisible">
+  <div class="drag-handle"></div>
+
+  <div class="sheet-header">
+    <h2>Contatti</h2>
+    <button class="close-btn" (click)="close()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <ul class="contact-list">
+    <li *ngFor="let contact of contacts" class="contact-row">
+      <div class="contact-info">
+        <span class="contact-name">{{ contact.name }}</span>
+        <span class="contact-role">{{ contact.role }}</span>
+      </div>
+      <button class="call-btn" (click)="onCallClick(contact)" title="Chiama">
+        <span class="material-icons">call</span>
+      </button>
+    </li>
+  </ul>
+</div>

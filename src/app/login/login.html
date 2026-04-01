@@ -2,8 +2,8 @@
   <h1>Autenticazione</h1>
   
   <div class="buttons">
-    <button class="btn-primary" routerLink="/home">Paziente</button>
-    <button class="btn-outline">Caregiver</button>
-    <button class="btn-outline">Farmacia</button>
+    <button class="btn-primary" (click)="loginAsPatient()">Paziente</button>
+    <button class="btn-outline" (click)="loginAsCaregiver()">Caregiver</button>
+    <button class="btn-outline" (click)="loginAsPharmacy()">Farmacia</button>
   </div>
 </div>

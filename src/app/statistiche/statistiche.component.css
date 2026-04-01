@@ -1,0 +1,258 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--bg-color, #f9f9f9);
+  overflow-y: auto;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #e0e0e0;
+  border: none;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.back-btn .material-icons {
+  font-size: 18px;
+}
+
+h2 {
+  margin: 12px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.section {
+  margin-bottom: 28px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-title .material-icons {
+  color: #4caf50;
+  font-size: 22px;
+}
+
+/* Blood Pressure Table */
+.bp-table {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bp-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: #f5f5f5;
+}
+
+.bp-row.header {
+  font-weight: 600;
+  color: #777;
+  background: #e8e8e8;
+}
+
+.bp-row.green {
+  background: rgba(76, 175, 80, 0.15);
+  border-left: 3px solid #4caf50;
+}
+
+.bp-row.yellow {
+  background: #ffb74d;
+  border-left: 3px solid #e65100;
+  color: #000;
+}
+
+.bp-row.yellow .bp-value {
+  color: #000;
+}
+
+.bp-row.red {
+  background: rgba(244, 67, 54, 0.15);
+  border-left: 3px solid #f44336;
+}
+
+.bp-value {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Medication Grid */
+.med-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.med-row-header {
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  gap: 4px;
+  padding: 6px 0;
+  color: #777;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.day-col {
+  text-align: center;
+}
+
+.med-row {
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  gap: 4px;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.med-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.dot-col {
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: transparent;
+}
+
+.dot.filled {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+.dot.missed {
+  background: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed #ddd;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Adherence Badges */
+.adherence-badges {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.adherence-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 12px;
+  border-radius: 28px;
+  min-width: 80px;
+}
+
+.badge-green {
+  background: rgba(76, 175, 80, 0.2);
+  border: 2px solid #4caf50;
+}
+
+.badge-yellow {
+  background: rgba(255, 152, 0, 0.2);
+  border: 2px solid #ff9800;
+}
+
+.badge-red {
+  background: rgba(244, 67, 54, 0.2);
+  border: 2px solid #f44336;
+}
+
+.badge-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.badge-green .badge-value {
+  color: #4caf50;
+}
+
+.badge-yellow .badge-value {
+  color: #ff9800;
+}
+
+.badge-red .badge-value {
+  color: #f44336;
+}
+
+.badge-label {
+  font-size: 11px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* No Data */
+.no-data {
+  text-align: center;
+  padding: 48px 16px;
+  color: #777;
+}
+
+.no-data .material-icons {
+  font-size: 48px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}

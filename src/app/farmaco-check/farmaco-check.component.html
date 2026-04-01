@@ -1,0 +1,27 @@
+<div class="overlay" *ngIf="!cameraError">
+  <video #videoEl autoplay playsinline></video>
+
+  <div class="vignette"></div>
+
+  <button class="close-btn" (click)="close()">✕</button>
+
+  <div class="scan-container">
+    <div class="scan-frame" [class.scan-success]="scanComplete">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="scan-line"></div>
+    </div>
+    <p class="scan-label">Inquadra il codice a barre del farmaco</p>
+  </div>
+</div>
+
+<div class="overlay error-overlay" *ngIf="cameraError">
+  <button class="close-btn" (click)="close()">✕</button>
+  <div class="error-content">
+    <span class="material-icons">videocam_off</span>
+    <p class="error-message">Accesso fotocamera negato</p>
+    <button class="close-error-btn" (click)="close()">Chiudi</button>
+  </div>
+</div>

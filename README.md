@@ -1,70 +1,76 @@
-# HealthApp - Applicazione per la Gestione della Terapia
+# HealthApp — Gestione della Terapia Farmacologica
 
-## Cos'è HealthApp?
+HealthApp è un'applicazione web sviluppata nell'ambito di una tesi in farmacia, con l'obiettivo di migliorare l'**aderenza terapeutica** dei pazienti — ovvero la capacità di seguire correttamente e con costanza le terapie prescritte dal medico.
 
-HealthApp è un'applicazione web intuitiva e facile da usare pensata per aiutare i pazienti a gestire in modo semplice e organizzato la propria terapia quotidiana. Con un'interfaccia chiara e colorata, l'app ti accompagna passo dopo passo nel monitoraggio dei farmaci e nella cura della tua salute.
+L'applicazione è pensata per essere semplice e accessibile a tutti: non è necessaria alcuna competenza tecnica per utilizzarla.
 
-## Caratteristiche Principali
+---
 
-### 🏠 **Home - La tua Dashboard Personale**
-- **Riepilogo della tua salute**: Visualizza immediatamente il tuo livello di aderenza alla terapia (es: "Stai andando bene! Aderenza terapia > 70%")
-- **Stato dei farmaci**: Controlla rapidamente quali farmaci hai assunto e quali sono ancora da prendere
-- **Facile da capire**: Icone intuitive e colori che indicano lo stato (verde = assunto, rosso = da assumere)
+## Perché è utile
 
-### 📅 **Calendario - Organizza la tua Terapia**
-- **Visualizzazione mensile**: Naviga tra i mesi per vedere la tua storia terapeutica
-- **Eventi giornalieri**: Puntini colorati che indicano i giorni con attività terapeutiche
-- **Selezione intuitiva**: Clicca su una data per vedere i dettagli del giorno
+Uno dei problemi più diffusi in ambito sanitario è la scarsa aderenza terapeutica: molti pazienti dimenticano di assumere i farmaci, saltano delle dosi o non rispettano gli orari. Questo ha conseguenze dirette sulla salute e aumenta i costi del sistema sanitario.
 
-### 🔐 **Autenticazione Semplice**
-- **Accesso rapido**: Tre opzioni di accesso (Paziente, Caregiver, Farmacia)
-- **Interfaccia chiara**: Pulsanti grandi e testi esplicativi
+HealthApp nasce per rispondere a questo problema, offrendo uno strumento digitale che permette a pazienti, caregiver e farmacisti di tenere tutto sotto controllo in modo semplice e immediato, direttamente dallo smartphone o dal computer.
 
-### 🎯 **Funzionalità Aggiuntive**
-- **Assistente Vocale**: Comandi vocali per una gestione ancora più facile
-- **Farmaco Check**: Verifica interazioni e informazioni sui farmaci
-- **Inserimento Farmaci**: Aggiungi nuovi farmaci alla tua terapia con un semplice click
+---
 
-## Come Funziona
+## A chi è rivolta
 
-1. **Accedi all'applicazione** scegliendo il tuo ruolo (Paziente, Caregiver o Farmacia)
-2. **Visualizza la tua Home** per controllare l'aderenza alla terapia e lo stato dei farmaci giornalieri
-3. **Usa il Calendario** per vedere la tua storia terapeutica e pianificare le assunzioni future
-4. **Gestisci i tuoi farmaci** attraverso le funzionalità di inserimento e controllo
+L'applicazione supporta tre figure distinte, ognuna con la propria vista dedicata:
 
-## Per Chi è Pensata
+- **Paziente** — può visualizzare i propri farmaci del giorno, segnare quelli assunti e consultare il calendario terapeutico
+- **Caregiver** — ha una panoramica sui pazienti assistiti, monitora l'aderenza di ciascuno e può verificare lo stato delle assunzioni giornaliere
+- **Farmacista** — dispone di uno strumento professionale per monitorare i pazienti seguiti, visualizzare statistiche dettagliate e rilevare situazioni critiche
 
-- **Pazienti** che vogliono tenere sotto controllo la propria terapia quotidiana
-- **Caregiver** che assistono persone con terapie complesse
-- **Farmacisti** che necessitano di strumenti per monitorare l'aderenza terapeutica
+---
 
-## Tecnologie Utilizzate
+## Funzionalità principali
 
-- **[Angular](https://angular.dev/)**: Framework frontend per un'esperienza utente moderna e reattiva
-- **[Bootstrap](https://getbootstrap.com/)**: Libreria CSS per un design responsive e accattivante
-- **[Angular Calendar](https://www.npmjs.com/package/angular-calendar)**: Componenti per la gestione del calendario e degli eventi
-- **[TypeScript](https://www.typescriptlang.org/)**: Linguaggio di programmazione per una maggiore sicurezza e manutenibilità
+### Dashboard personale
+All'apertura dell'app, ogni utente vede immediatamente un riepilogo dello stato della terapia. Il livello di aderenza è mostrato con un indicatore colorato (verde, giallo o rosso) per capire a colpo d'occhio se la terapia viene seguita correttamente.
 
-## Avviare l'Applicazione
+### Calendario terapeutico
+Una vista mensile permette di navigare nel tempo e vedere i giorni in cui i farmaci sono stati assunti o mancati. I giorni vengono evidenziati visivamente per facilitare l'identificazione di eventuali lacune nella terapia.
 
-Se sei uno sviluppatore o vuoi testare l'applicazione localmente:
+### Statistiche per il caregiver
+Il caregiver può visualizzare, paziente per paziente, l'andamento della pressione sanguigna negli ultimi sette giorni e l'aderenza settimanale ai farmaci. Ogni farmaco è tracciato giorno per giorno, con un riepilogo visivo immediato.
+
+### Farmaco Check (scansione)
+Tramite la fotocamera del dispositivo è possibile avviare una scansione per identificare un farmaco. Dopo la scansione, viene mostrata una scheda con le informazioni rilevanti. Questa funzione è pensata per semplificare la verifica e la registrazione delle assunzioni.
+
+### Accesso per ruolo
+Al login, l'utente sceglie il proprio ruolo (Paziente, Caregiver o Farmacista) e viene indirizzato all'interfaccia più adatta alle proprie esigenze.
+
+---
+
+## Come avviare il progetto (per sviluppatori)
 
 1. **Installa le dipendenze**:
    ```bash
    npm install
    ```
 
-2. **Avvia il server di sviluppo**:
+2. **Avvia l'applicazione in locale**:
    ```bash
    npm start
    ```
 
-3. **Apri il browser** e vai all'indirizzo: `http://localhost:4200/`
-
-## Licenza
-
-Questo progetto è rilasciato sotto licenza MIT.
+3. **Apri il browser** all'indirizzo: `http://localhost:4200/`
 
 ---
 
-**Nota**: Questa applicazione è pensata come strumento di supporto alla gestione della terapia e non sostituisce il parere medico professionale.
+## Tecnologie utilizzate
+
+**[Angular](https://angular.dev/)** è stato scelto come framework principale perché HealthApp è una Single Page Application (SPA): invece di ricaricare l'intera pagina ad ogni click, l'applicazione aggiorna dinamicamente solo la parte di schermata necessaria, rendendo la navigazione tra le varie sezioni (login, home, calendario, area caregiver) rapida e fluida. Angular è basato su **[TypeScript](https://www.typescriptlang.org/)**, un linguaggio che aggiunge controlli aggiuntivi durante lo sviluppo e aiuta a individuare errori prima ancora di eseguire il codice — utile in un contesto dove la correttezza dei dati mostrati all'utente è importante.
+
+Per lo stile grafico è stato utilizzato **[Bootstrap](https://getbootstrap.com/)**, una libreria che permette di costruire interfacce responsive e personalizzabili con semplicità. Bootstrap è inoltre lo standard adottato nelle linee guida di design della Pubblica Amministrazione italiana, il che lo rende una scelta coerente per applicazioni sanitarie destinate a un contesto nazionale.
+
+---
+
+## Note
+
+Questa applicazione è un prototipo sviluppato a scopo accademico e di ricerca nell'ambito di una tesi in farmacia. Non sostituisce in alcun modo il parere medico o farmaceutico professionale.
+
+---
+
+*Rilasciato sotto licenza MIT.*
