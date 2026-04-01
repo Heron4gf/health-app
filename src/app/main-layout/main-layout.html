@@ -25,8 +25,8 @@
       <span>FARMACO CHECK</span>
     </div>
 
-    <div class="bottom-nav" style="position: relative; z-index: 10000;">
-      <div (click)="goHome()" [class.active]="(isRoute('/home') || isRoute('/caregiver')) && !showContatti && !showOpzioni">
+    <div class="bottom-nav">
+      <div (click)="goHome()" [class.active]="isRoute('/home') && !showContatti && !showOpzioni">
         <span class="material-icons">home</span><small>Home</small>
       </div>
       <div (click)="openContattiModal()" [class.active]="showContatti">

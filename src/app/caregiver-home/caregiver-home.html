@@ -63,13 +63,13 @@
 
     <!-- Bottom Navigation -->
     <div class="bottom-nav">
-      <div class="active">
+      <div [class.active]="!showStatistiche && !showOpzioni">
         <span class="material-icons">home</span><small>Home</small>
       </div>
-      <div (click)="showStatistiche = true">
+      <div (click)="showStatistiche = true" [class.active]="showStatistiche">
         <span class="material-icons">bar_chart</span><small>Statistiche</small>
       </div>
-      <div (click)="showOpzioni = true">
+      <div (click)="showOpzioni = true" [class.active]="showOpzioni">
         <span class="material-icons">settings</span><small>Opzioni</small>
       </div>
     </div>
