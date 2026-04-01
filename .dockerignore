@@ -1,0 +1,39 @@
+# Node modules (rebuilt in the container)
+node_modules
+npm-debug.log*
+
+# Git
+.git
+.gitignore
+
+# IDE and Editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build output (rebuilt in the container)
+dist
+build
+
+# Environment variables
+.env
+.env.*.local
+
+# Docker files (not needed inside the container)
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Test coverage and reports
+coverage
+.nyc_output
+
+# Documentation
+*.md
+LICENSE
