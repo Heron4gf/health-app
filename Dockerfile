@@ -28,12 +28,12 @@ RUN npm ci --omit=dev
 COPY --from=build /app/dist ./dist
 
 # Set environment defaults
-ENV PORT=3000
+ENV PORT=4000
 ENV HOST=localhost
 ENV NODE_ENV=production
 
 # Expose the application port
-EXPOSE 3000
+EXPOSE 4000
 
 # Start the server
 CMD ["node", "dist/health-app/server/server.mjs"]
