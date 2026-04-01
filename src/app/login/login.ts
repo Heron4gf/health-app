@@ -25,6 +25,6 @@ export class Login {
 
   loginAsPharmacy(): void {
     this.userService.setRole('caregiver');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/caregiver']);
   }
 }
