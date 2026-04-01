@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
 
 interface Medication {
   name: string;
@@ -19,12 +20,14 @@ interface Patient {
 @Component({
   selector: 'app-caregiver-home',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent],
   templateUrl: './caregiver-home.html',
   styleUrls: ['./caregiver-home.css']
 })
 export class CaregiverHomeComponent {
   activePatient: number = 0;
+  showFarmacoCheck = false;
+  showResultCard = false;
 
   patients: Patient[] = [
     {
@@ -78,7 +81,20 @@ export class CaregiverHomeComponent {
   }
 
   openFarmacoCheck(): void {
-    console.log('Farmaco Check opened');
+    this.showFarmacoCheck = true;
+  }
+
+  onScanned(): void {
+    this.showResultCard = true;
+    this.showFarmacoCheck = false;
+  }
+
+  onFarmacoCheckClosed(): void {
+    this.showFarmacoCheck = false;
+  }
+
+  closeResultCard(): void {
+    this.showResultCard = false;
   }
 
   getStatusLabel(taken: boolean): string {

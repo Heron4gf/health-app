@@ -19,7 +19,7 @@
 
   <br>
 
-  <div class="action-card big-button">
+  <div class="action-card big-button" (click)="showFarmacoCheck = true">
     <span class="material-icons">medication</span>
     <span>FARMACO CHECK</span>
   </div>
@@ -33,6 +33,47 @@
     </div>
     <div>
       <span class="material-icons">settings</span><small>Opzioni</small>
+    </div>
+  </div>
+
+  <!-- Farmaco Check Scanner -->
+  <app-farmaco-check
+    *ngIf="showFarmacoCheck"
+    (scanned)="onScanned()"
+    (closed)="showFarmacoCheck = false">
+  </app-farmaco-check>
+
+  <!-- Drug Result Card -->
+  <div class="result-card-overlay" *ngIf="showResultCard">
+    <div class="result-card">
+      <button class="close-btn" (click)="closeResultCard()">✕</button>
+      <div class="result-card-header">
+        <span class="material-icons">check_circle</span>
+        <h3>Farmaco Riconosciuto</h3>
+      </div>
+      <div class="result-card-body">
+        <div class="result-row">
+          <span class="result-label">Nome:</span>
+          <span class="result-value">Imodium 2mg</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Principio attivo:</span>
+          <span class="result-value">Loperamide cloridrato</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Dosaggio:</span>
+          <span class="result-value">2mg/capsula</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Scadenza:</span>
+          <span class="result-value">03/2027</span>
+        </div>
+        <div class="result-row">
+          <span class="result-label">Produttore:</span>
+          <span class="result-value">Johnson & Johnson</span>
+        </div>
+      </div>
+      <button class="close-card-btn" (click)="closeResultCard()">Chiudi</button>
     </div>
   </div>
 </div>
