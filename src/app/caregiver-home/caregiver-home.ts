@@ -41,8 +41,8 @@ export class CaregiverHomeComponent {
       prossimaDose: 'Ore 15:00',
       dosiMancate: '0',
       medications: [
-        { name: 'Imodium', taken: true },
-        { name: 'Aspirina', taken: true }
+        { name: 'Metformina', taken: true },
+        { name: 'Depagliflozin', taken: true }
       ]
     },
     {
@@ -52,19 +52,9 @@ export class CaregiverHomeComponent {
       prossimaDose: 'Ore 16:00',
       dosiMancate: '1 questa settimana',
       medications: [
-        { name: 'Cardioaspirina', taken: false },
-        { name: 'Tachipirina', taken: true }
-      ]
-    },
-    {
-      name: 'Luca Verdi',
-      aderenza: 45,
-      ultimaDose: '5 ore fa',
-      prossimaDose: 'Ore 13:00',
-      dosiMancate: '2 questa settimana',
-      medications: [
-        { name: 'Diclofenac', taken: false },
-        { name: 'Maalox', taken: false }
+        { name: 'Ramipril', taken: false },
+        { name: 'Bisoprololo', taken: true },
+        { name: 'Cardiospirina', taken: true}
       ]
     }
   ];
