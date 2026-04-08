@@ -1,8 +1,8 @@
-<div class="overlay">
+<div class="page-root">
   <div class="container">
     <div class="header">
-      <button class="back-btn" (click)="close()">
-        <span class="material-icons">arrow_back</span> Indietro
+      <button class="back-btn" (click)="goBack()">
+        <span class="material-icons">arrow_back</span>
       </button>
       <h2>Statistiche {{ patientName }}</h2>
     </div>
@@ -57,11 +57,9 @@
           Andamento aderenza
         </h3>
         <div class="adherence-badges">
-          <div class="badge-wrapper" *ngFor="let val of stats.weeklyAdherence; let i = index">
-            <div class="adherence-badge" [class]="getAdherenceBadgeClass(val)">
-              <span class="badge-value">{{ val }}%</span>
-              <span class="badge-label">Settimana {{ i + 1 }}</span>
-            </div>
+          <div class="adherence-badge" *ngFor="let val of stats.weeklyAdherence; let i = index" [class]="getAdherenceBadgeClass(val)">
+            <span class="badge-value">{{ val }}%</span>
+            <span class="badge-label">Settimana {{ i + 1 }}</span>
           </div>
         </div>
       </section>

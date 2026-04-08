@@ -3,13 +3,18 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
-import { ContattiComponent } from '../contatti/contatti.component';
-import { OpzioniPazienteComponent } from '../opzioni/opzioni-paziente.component';
+import { BottomNavbarComponent, NavItem } from '../shared/bottom-navbar/bottom-navbar.component';
+
+const PATIENT_NAV_ITEMS: NavItem[] = [
+  { icon: 'home', label: 'Home', route: '/home' },
+  { icon: 'contacts', label: 'Contatti', route: '/contatti' },
+  { icon: 'settings', label: 'Opzioni', route: '/opzioni/paziente' }
+];
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterModule, CommonModule, FarmacoCheckComponent, ContattiComponent, OpzioniPazienteComponent],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent, BottomNavbarComponent],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css'
 })
@@ -19,8 +24,7 @@ export class MainLayoutComponent {
 
   showFarmacoCheck = false;
   showResultCard = false;
-  showContatti = false;
-  showOpzioni = false;
+  navItems = PATIENT_NAV_ITEMS;
 
   isPatient(): boolean {
     return this.userService.getRole() === 'patient';
@@ -31,24 +35,7 @@ export class MainLayoutComponent {
   }
 
   goHome(): void {
-    this.resetModals();
-    const route = this.isPatient() ? '/home' : '/caregiver';
-    this.router.navigate([route]);
-  }
-
-  openContattiModal(): void {
-    this.resetModals();
-    this.showContatti = true;
-  }
-
-  openOpzioniModal(): void {
-    this.resetModals();
-    this.showOpzioni = true;
-  }
-
-  resetModals(): void {
-    this.showContatti = false;
-    this.showOpzioni = false;
+    this.router.navigate(['/home']);
   }
 
   onScanned(): void {

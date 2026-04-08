@@ -61,31 +61,19 @@
       }
     </div>
 
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-      <div [class.active]="!showStatistiche && !showOpzioni">
-        <span class="material-icons">home</span><small>Home</small>
-      </div>
-      <div (click)="showStatistiche = true" [class.active]="showStatistiche">
-        <span class="material-icons">bar_chart</span><small>Statistiche</small>
-      </div>
-      <div (click)="showOpzioni = true" [class.active]="showOpzioni">
-        <span class="material-icons">settings</span><small>Opzioni</small>
-      </div>
-    </div>
   </div>
 
-  <!-- Farmaco Check Scanner - outside .screen to prevent clipping -->
+  <!-- Farmaco Check Scanner -->
   <app-farmaco-check
     *ngIf="showFarmacoCheck"
     (scanned)="onScanned()"
     (closed)="onFarmacoCheckClosed()">
   </app-farmaco-check>
 
-  <!-- Drug Result Card - outside .screen to prevent clipping -->
+  <!-- Drug Result Card -->
   <div class="result-card-overlay" *ngIf="showResultCard">
     <div class="result-card">
-      <button class="close-btn" (click)="closeResultCard()">✕</button>
+      <button class="close-btn" (click)="closeResultCard()">&#10005;</button>
       <div class="result-card-header">
         <span class="material-icons">check_circle</span>
         <h3>Farmaco Riconosciuto</h3>
@@ -116,13 +104,6 @@
     </div>
   </div>
 
-  <!-- Statistiche overlay - outside .screen to prevent clipping -->
-  <app-statistiche
-    *ngIf="showStatistiche"
-    [patientName]="activePatientData.name"
-    (closed)="showStatistiche = false">
-  </app-statistiche>
-
-  <!-- Opzioni overlay - outside .screen to prevent clipping -->
-  <app-opzioni-caregiver *ngIf="showOpzioni" (closed)="showOpzioni = false"></app-opzioni-caregiver>
+  <!-- Bottom Navigation Bar -->
+  <app-bottom-navbar [items]="navItems"></app-bottom-navbar>
 </div>

@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface BloodPressureReading {
   date: string;
@@ -70,21 +71,29 @@ const PATIENT_DATA: Record<string, PatientStats> = {
 };
 
 @Component({
-  selector: 'app-statistiche',
+  selector: 'app-statistiche-page',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './statistiche.component.html',
-  styleUrl: './statistiche.component.css'
+  templateUrl: './statistiche-page.component.html',
+  styleUrl: './statistiche-page.component.css'
 })
-export class StatisticheComponent {
-  @Input() patientName: string = '';
-  @Output() closed = new EventEmitter<void>();
+export class StatistichePageComponent {
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   stats: PatientStats | null = null;
+  patientName: string = '';
   daysOfWeek = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
 
   ngOnInit(): void {
-    this.stats = PATIENT_DATA[this.patientName] || null;
+    this.route.queryParams.subscribe(params => {
+      this.patientName = params['patient'] || '';
+      this.stats = PATIENT_DATA[this.patientName] || null;
+    });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/caregiver']);
   }
 
   getSystolicColor(systolic: number): string {
@@ -97,9 +106,5 @@ export class StatisticheComponent {
     if (value >= 70) return 'badge-green';
     if (value >= 50) return 'badge-yellow';
     return 'badge-red';
-  }
-
-  close(): void {
-    this.closed.emit();
   }
 }

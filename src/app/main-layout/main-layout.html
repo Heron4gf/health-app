@@ -24,18 +24,6 @@
       <span class="material-icons">medication</span>
       <span>FARMACO CHECK</span>
     </div>
-
-    <div class="bottom-nav">
-      <div (click)="goHome()" [class.active]="isRoute('/home') && !showContatti && !showOpzioni">
-        <span class="material-icons">home</span><small>Home</small>
-      </div>
-      <div (click)="openContattiModal()" [class.active]="showContatti">
-        <span class="material-icons">contacts</span><small>Contatti</small>
-      </div>
-      <div (click)="openOpzioniModal()" [class.active]="showOpzioni">
-        <span class="material-icons">settings</span><small>Opzioni</small>
-      </div>
-    </div>
   </div>
 
   <app-farmaco-check
@@ -46,7 +34,7 @@
 
   <div class="result-card-overlay" *ngIf="showResultCard">
     <div class="result-card">
-      <button class="close-btn" (click)="closeResultCard()">✕</button>
+      <button class="close-btn" (click)="closeResultCard()">&#10005;</button>
       <div class="result-card-header">
         <span class="material-icons">check_circle</span>
         <h3>Farmaco Riconosciuto</h3>
@@ -77,7 +65,5 @@
     </div>
   </div>
 
-  <app-contatti *ngIf="showContatti" (closed)="showContatti = false"></app-contatti>
-
-  <app-opzioni-paziente *ngIf="showOpzioni" (closed)="showOpzioni = false"></app-opzioni-paziente>
+  <app-bottom-navbar [items]="navItems"></app-bottom-navbar>
 </div>

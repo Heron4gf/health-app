@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
-import { StatisticheComponent } from '../statistiche/statistiche.component';
-import { OpzioniCaregiverComponent } from '../opzioni/opzioni-caregiver.component';
+import { BottomNavbarComponent, NavItem } from '../shared/bottom-navbar/bottom-navbar.component';
 
 interface Medication {
   name: string;
@@ -22,16 +23,18 @@ interface Patient {
 @Component({
   selector: 'app-caregiver-home',
   standalone: true,
-  imports: [RouterModule, CommonModule, FarmacoCheckComponent, StatisticheComponent, OpzioniCaregiverComponent],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent, BottomNavbarComponent],
   templateUrl: './caregiver-home.html',
   styleUrls: ['./caregiver-home.css']
 })
-export class CaregiverHomeComponent {
+export class CaregiverHomeComponent implements OnInit, OnDestroy {
+  private router = inject(Router);
   activePatient: number = 0;
   showFarmacoCheck = false;
   showResultCard = false;
-  showStatistiche = false;
-  showOpzioni = false;
+  private routerSubscription: Subscription | null = null;
+  currentRoute: string = '';
+  navItems: NavItem[] = [];
 
   patients: Patient[] = [
     {
@@ -54,7 +57,7 @@ export class CaregiverHomeComponent {
       medications: [
         { name: 'Ramipril', taken: false },
         { name: 'Bisoprololo', taken: true },
-        { name: 'Cardiospirina', taken: true}
+        { name: 'Cardiospirina', taken: true }
       ]
     }
   ];
@@ -70,8 +73,22 @@ export class CaregiverHomeComponent {
     return 'red';
   }
 
+  private updateNavItems(): void {
+    this.navItems = [
+      { icon: 'home', label: 'Home', route: '/caregiver' },
+      { 
+        icon: 'bar_chart', 
+        label: 'Stats', 
+        route: '/statistiche',
+        queryParams: { patient: this.activePatientData.name } 
+      },
+      { icon: 'settings', label: 'Opzioni', route: '/opzioni/caregiver' }
+    ];
+  }
+
   selectPatient(index: number): void {
     this.activePatient = index;
+    this.updateNavItems();
   }
 
   openFarmacoCheck(): void {
@@ -101,5 +118,19 @@ export class CaregiverHomeComponent {
 
   toggleMedication(med: Medication): void {
     med.taken = !med.taken;
+  }
+
+  ngOnInit(): void {
+    this.updateNavItems();
+    this.currentRoute = this.router.url;
+    this.routerSubscription = this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.currentRoute = event.url;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
   }
 }
