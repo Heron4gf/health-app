@@ -1,18 +1,28 @@
-.page-root {
+.opzioni-layout-root {
+  position: relative;
   min-height: 100vh;
   background: var(--bg-color, #f9f9f9);
-  padding-bottom: 20px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  padding: 16px 20px;
-  background: var(--white, #fff);
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+.opzioni-content {
+  padding: 20px;
+  padding-bottom: 90px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.title {
+  margin: 16px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
 }
 
 .back-btn {

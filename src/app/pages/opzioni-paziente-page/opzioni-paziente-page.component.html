@@ -1,12 +1,5 @@
-<div class="page-root">
-  <div class="header">
-    <button class="back-btn" (click)="goBack()">
-      <span class="material-icons">arrow_back</span>
-    </button>
-    <h2 class="title">Opzioni</h2>
-    <span class="spacer"></span>
-  </div>
-
+<app-main-layout [showTopSection]="false" [navItems]="navItems">
+  <h2 class="title">Opzioni</h2>
   <div class="content">
     <div class="sections">
       <div class="section">
@@ -68,4 +61,4 @@
       </div>
     </div>
   </div>
-</div>
+</app-main-layout>

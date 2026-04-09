@@ -1,12 +1,5 @@
-<div class="page-root">
-  <div class="header">
-    <button class="back-btn" (click)="goBack()">
-      <span class="material-icons">arrow_back</span>
-    </button>
-    <h2 class="title">Contatti</h2>
-    <span class="spacer"></span>
-  </div>
-
+<app-main-layout [showTopSection]="false" [navItems]="navItems">
+  <h2 class="title">Contatti</h2>
   <div class="content">
     <ul class="contact-list">
       <li *ngFor="let contact of contacts" class="contact-row">
@@ -20,4 +13,4 @@
       </li>
     </ul>
   </div>
-</div>
+</app-main-layout>

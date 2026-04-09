@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { MainLayoutComponent, PATIENT_NAV_ITEMS, NavItem } from '../../main-layout/main-layout';
 
 export interface Contact {
   name: string;
@@ -19,7 +20,7 @@ const CONTACTS: Contact[] = [
 @Component({
   selector: 'app-contatti-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MainLayoutComponent],
   templateUrl: './contatti-page.component.html',
   styleUrl: './contatti-page.component.css'
 })
@@ -28,6 +29,7 @@ export class ContattiPageComponent {
   private userService = inject(UserService);
 
   contacts = CONTACTS;
+  navItems: NavItem[] = PATIENT_NAV_ITEMS;
 
   goBack(): void {
     const isPatient = this.userService.getRole() === 'patient';

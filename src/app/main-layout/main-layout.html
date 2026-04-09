@@ -1,33 +1,35 @@
 <div class="main-layout-root">
   <div class="screen">
-    <div class="top-actions">
-      <div class="action-card">
-        <span class="material-icons">mic</span>
-        <small>ASSISTENTE VOCALE</small>
+    <ng-container *ngIf="showTopSection">
+      <div class="top-actions">
+        <div class="action-card">
+          <span class="material-icons">mic</span>
+          <small>ASSISTENTE VOCALE</small>
+        </div>
       </div>
-    </div>
 
-    <div class="tabs">
-      <button routerLink="/home" routerLinkActive="active">
-        <span class="material-icons">menu_book</span> Home
-      </button>
-      <button routerLink="/calendar" routerLinkActive="active">
-        <span class="material-icons">calendar_today</span> Calendario
-      </button>
-    </div>
+      <div class="tabs">
+        <button routerLink="/home" routerLinkActive="active">
+          <span class="material-icons">menu_book</span> Home
+        </button>
+        <button routerLink="/calendar" routerLinkActive="active">
+          <span class="material-icons">calendar_today</span> Calendario
+        </button>
+      </div>
+    </ng-container>
 
     <ng-content></ng-content>
 
     <br>
 
-    <div class="action-card big-button" (click)="showFarmacoCheck = true">
+    <div *ngIf="showTopSection" class="action-card big-button" (click)="showFarmacoCheck = true">
       <span class="material-icons">medication</span>
       <span>FARMACO CHECK</span>
     </div>
   </div>
 
   <app-farmaco-check
-    *ngIf="showFarmacoCheck"
+    *ngIf="showFarmacoCheck && showTopSection"
     (scanned)="onScanned()"
     (closed)="showFarmacoCheck = false">
   </app-farmaco-check>

@@ -1,0 +1,12 @@
+<div class="patient-selector">
+  @for (patient of patients; track patient.name; let i = $index) {
+    <div
+      class="patient-card"
+      [class.active]="i === activeIndex"
+      (click)="onSelect(i)"
+    >
+      <span class="material-icons">person</span>
+      <span class="patient-name">{{ patient.name }}</span>
+    </div>
+  }
+</div>

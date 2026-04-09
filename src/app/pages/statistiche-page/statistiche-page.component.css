@@ -1,19 +1,20 @@
-.page-root {
+.statistiche-layout-root {
+  position: relative;
   min-height: 100vh;
-  background: var(--bg-color, #f9f9f9);
-  padding: 20px;
 }
 
-.container {
+.statistiche-content {
+  padding: 20px;
+  padding-bottom: 90px;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+.title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
 }
 
 .back-btn {

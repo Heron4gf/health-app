@@ -1,6 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PatientService } from '../../services/patient.service';
+import { PatientSelectorComponent, Patient } from '../../shared/patient-selector/patient-selector.component';
+import { BottomNavbarComponent, NavItem } from '../../shared/bottom-navbar/bottom-navbar.component';
+import { buildCaregiverNavItems } from '../../main-layout/main-layout';
 
 export interface BloodPressureReading {
   date: string;
@@ -73,23 +77,56 @@ const PATIENT_DATA: Record<string, PatientStats> = {
 @Component({
   selector: 'app-statistiche-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PatientSelectorComponent, BottomNavbarComponent],
   templateUrl: './statistiche-page.component.html',
   styleUrl: './statistiche-page.component.css'
 })
 export class StatistichePageComponent {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private patientService = inject(PatientService);
 
   stats: PatientStats | null = null;
   patientName: string = '';
   daysOfWeek = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
+  navItems: NavItem[] = [];
+  patients: Patient[] = [];
+
+  constructor() {
+    this.patients = this.patientService.getPatients();
+  }
+
+  get activePatientIndex(): number {
+    return this.patientService.getActiveIndex();
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.patientName = params['patient'] || '';
-      this.stats = PATIENT_DATA[this.patientName] || null;
+      const paramPatient = params['patient'] || '';
+      if (paramPatient) {
+        const idx = this.patients.findIndex(p => p.name === paramPatient);
+        if (idx !== -1) {
+          this.patientService.setActiveIndex(idx);
+        }
+      }
+      this.loadStats();
     });
+    this.updateNavItems();
+  }
+
+  private updateNavItems(): void {
+    this.navItems = buildCaregiverNavItems(this.patientService);
+  }
+
+  private loadStats(): void {
+    this.patientName = this.patientService.getActivePatient().name;
+    this.stats = PATIENT_DATA[this.patientName] || null;
+  }
+
+  selectPatient(index: number): void {
+    this.patientService.setActiveIndex(index);
+    this.updateNavItems();
+    this.loadStats();
   }
 
   goBack(): void {

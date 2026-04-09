@@ -5,14 +5,16 @@ import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { FarmacoCheckComponent } from '../farmaco-check/farmaco-check.component';
 import { BottomNavbarComponent, NavItem } from '../shared/bottom-navbar/bottom-navbar.component';
+import { PatientService } from '../services/patient.service';
+import { PatientSelectorComponent, Patient } from '../shared/patient-selector/patient-selector.component';
+import { buildCaregiverNavItems } from '../main-layout/main-layout';
 
 interface Medication {
   name: string;
   taken: boolean;
 }
 
-interface Patient {
-  name: string;
+interface PatientStatsData {
   aderenza: number;
   ultimaDose: string;
   prossimaDose: string;
@@ -20,50 +22,62 @@ interface Patient {
   medications: Medication[];
 }
 
+const PATIENT_STATS: Record<string, PatientStatsData> = {
+  'Mario Rossi': {
+    aderenza: 85,
+    ultimaDose: '1 ora fa',
+    prossimaDose: 'Ore 15:00',
+    dosiMancate: '0',
+    medications: [
+      { name: 'Metformina', taken: true },
+      { name: 'Depagliflozin', taken: true }
+    ]
+  },
+  'Giulia Bianchi': {
+    aderenza: 60,
+    ultimaDose: '3 ore fa',
+    prossimaDose: 'Ore 16:00',
+    dosiMancate: '1 questa settimana',
+    medications: [
+      { name: 'Ramipril', taken: false },
+      { name: 'Bisoprololo', taken: true },
+      { name: 'Cardiospirina', taken: true }
+    ]
+  }
+};
+
 @Component({
   selector: 'app-caregiver-home',
   standalone: true,
-  imports: [RouterModule, CommonModule, FarmacoCheckComponent, BottomNavbarComponent],
+  imports: [RouterModule, CommonModule, FarmacoCheckComponent, BottomNavbarComponent, PatientSelectorComponent],
   templateUrl: './caregiver-home.html',
   styleUrls: ['./caregiver-home.css']
 })
 export class CaregiverHomeComponent implements OnInit, OnDestroy {
   private router = inject(Router);
-  activePatient: number = 0;
+  private patientService = inject(PatientService);
+
   showFarmacoCheck = false;
   showResultCard = false;
   private routerSubscription: Subscription | null = null;
-  currentRoute: string = '';
   navItems: NavItem[] = [];
+  patients: Patient[] = [];
 
-  patients: Patient[] = [
-    {
-      name: 'Mario Rossi',
-      aderenza: 85,
-      ultimaDose: '1 ora fa',
-      prossimaDose: 'Ore 15:00',
-      dosiMancate: '0',
-      medications: [
-        { name: 'Metformina', taken: true },
-        { name: 'Depagliflozin', taken: true }
-      ]
-    },
-    {
-      name: 'Giulia Bianchi',
-      aderenza: 60,
-      ultimaDose: '3 ore fa',
-      prossimaDose: 'Ore 16:00',
-      dosiMancate: '1 questa settimana',
-      medications: [
-        { name: 'Ramipril', taken: false },
-        { name: 'Bisoprololo', taken: true },
-        { name: 'Cardiospirina', taken: true }
-      ]
-    }
-  ];
+  constructor() {
+    this.patients = this.patientService.getPatients();
+  }
 
-  get activePatientData(): Patient {
-    return this.patients[this.activePatient];
+  get activePatientIndex(): number {
+    return this.patientService.getActiveIndex();
+  }
+
+  get activePatientName(): string {
+    return this.patientService.getActivePatient().name;
+  }
+
+  get activePatientData(): PatientStatsData {
+    const name = this.patientService.getActivePatient().name;
+    return PATIENT_STATS[name] || PATIENT_STATS[this.patients[0].name];
   }
 
   get aderenzaColor(): string {
@@ -73,22 +87,13 @@ export class CaregiverHomeComponent implements OnInit, OnDestroy {
     return 'red';
   }
 
-  private updateNavItems(): void {
-    this.navItems = [
-      { icon: 'home', label: 'Home', route: '/caregiver' },
-      { 
-        icon: 'bar_chart', 
-        label: 'Stats', 
-        route: '/statistiche',
-        queryParams: { patient: this.activePatientData.name } 
-      },
-      { icon: 'settings', label: 'Opzioni', route: '/opzioni/caregiver' }
-    ];
+  selectPatient(index: number): void {
+    this.patientService.setActiveIndex(index);
+    this.updateNavItems();
   }
 
-  selectPatient(index: number): void {
-    this.activePatient = index;
-    this.updateNavItems();
+  private updateNavItems(): void {
+    this.navItems = buildCaregiverNavItems(this.patientService);
   }
 
   openFarmacoCheck(): void {
@@ -122,12 +127,9 @@ export class CaregiverHomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.updateNavItems();
-    this.currentRoute = this.router.url;
     this.routerSubscription = this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.currentRoute = event.url;
-      });
+      .subscribe(() => {});
   }
 
   ngOnDestroy(): void {
