@@ -1,0 +1,49 @@
+.patient-selector {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 10px 0 15px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.patient-selector::-webkit-scrollbar {
+  display: none;
+}
+
+.patient-card {
+  flex: 0 0 auto;
+  min-width: 120px;
+  background: var(--white);
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-card);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-card .material-icons {
+  font-size: 32px;
+  color: var(--text-light);
+  transition: color 0.2s ease;
+}
+
+.patient-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.patient-card.active {
+  border-color: var(--primary);
+  background: #f0f5e6;
+}
+
+.patient-card.active .material-icons {
+  color: var(--primary);
+}

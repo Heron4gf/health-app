@@ -1,0 +1,64 @@
+<div class="opzioni-layout-root">
+  <div class="opzioni-content">
+
+    <!-- Patient Selector -->
+    <h3 class="section-title">Seleziona Paziente</h3>
+    <app-patient-selector
+      [patients]="patients"
+      [activeIndex]="activePatientIndex"
+      (selected)="selectPatient($event)"
+    ></app-patient-selector>
+
+    <h2 class="title">Opzioni</h2>
+    <div class="sections">
+      <div class="section">
+        <div class="section-label">Profilo</div>
+        <div class="option-row">
+          <span class="option-label">Nome</span>
+          <span class="option-value">Dr. Rossi</span>
+        </div>
+        <div class="option-row">
+          <span class="option-label">Ruolo</span>
+          <span class="option-value">Caregiver</span>
+        </div>
+        <div class="option-row">
+          <span class="option-label">Struttura</span>
+          <span class="option-value">Ospedale di Camerino</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Notifiche</div>
+        <div class="option-row">
+          <span class="option-label">Alert aderenza critica</span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked disabled>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="option-row">
+          <span class="option-label">Report settimanale</span>
+          <label class="toggle-switch">
+            <input type="checkbox" checked disabled>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">App</div>
+        <div class="option-row">
+          <span class="option-label">Versione</span>
+          <span class="option-value">1.0.0</span>
+        </div>
+        <div class="option-row logout-row" (click)="logout()">
+          <span class="option-label logout-text">Logout</span>
+          <span class="material-icons logout-icon">exit_to_app</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <app-bottom-navbar [items]="navItems"></app-bottom-navbar>
+</div>

@@ -1,0 +1,16 @@
+<app-main-layout [showTopSection]="false" [navItems]="navItems">
+  <h2 class="title">Contatti</h2>
+  <div class="content">
+    <ul class="contact-list">
+      <li *ngFor="let contact of contacts" class="contact-row">
+        <div class="contact-info">
+          <span class="contact-name">{{ contact.name }}</span>
+          <span class="contact-role">{{ contact.role }}</span>
+        </div>
+        <a class="call-btn" [href]="'tel:' + contact.phone" title="Chiama">
+          <span class="material-icons">call</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</app-main-layout>
