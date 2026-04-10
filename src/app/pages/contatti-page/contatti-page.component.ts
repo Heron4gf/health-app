@@ -11,10 +11,10 @@ export interface Contact {
 }
 
 const CONTACTS: Contact[] = [
-  { name: 'Dr. Rossi', role: 'Farmacista', phone: '+39 02 1234567' },
-  { name: 'Infermiera Bianchi', role: 'Caregiver', phone: '+39 333 9876543' },
-  { name: 'Dr.ssa Marino', role: 'Medico di base', phone: '+39 02 9876543' },
-  { name: 'Sig. Verdi', role: 'Familiare', phone: '+39 347 1234567' }
+  { name: 'Dr. Rossi', role: 'Caregiver', phone: '+39 02 1234567' },
+  { name: 'Farmacia Camerte', role: 'Farmacista', phone: '+39 333 9876543' },
+  { name: 'Dr.ssa Marino', role: 'Caregiver', phone: '+39 02 9876543' },
+  { name: 'Sig. Verdi', role: 'Contatto di Emergenza', phone: '+39 347 1234567' }
 ];
 
 @Component({

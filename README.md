@@ -30,43 +30,69 @@ L'applicazione supporta tre figure distinte, ognuna con la propria vista dedicat
 
 Al login, l'utente sceglie il proprio ruolo (Paziente, Caregiver o Farmacista) e viene indirizzato all'interfaccia più adatta alle proprie esigenze.
 
-![Accesso per ruolo](images/auth.png)
+<img src="images/auth.png" alt="Accesso per ruolo" width="300">
 
-### Dashboard paziente
+---
+
+### Vista Paziente
+
+#### Dashboard paziente
 
 All'apertura dell'app, ogni utente vede immediatamente un riepilogo dello stato della terapia. Il livello di aderenza è mostrato con un indicatore colorato (verde, giallo o rosso) per capire a colpo d'occhio se la terapia viene seguita correttamente.
 
-![Dashboard paziente](images/home.png)
+<img src="images/home.png" alt="Dashboard paziente" width="300">
 
-### Opzioni e impostazioni
+#### Opzioni e impostazioni
 
 Interfaccia per la configurazione delle opzioni dell'applicazione.
 
-![Opzioni e impostazioni](images/options.png)
+<img src="images/options.png" alt="Opzioni e impostazioni" width="300">
 
-### Calendario terapeutico
+#### Calendario terapeutico
 
 Una vista mensile permette di navigare nel tempo e vedere i giorni in cui i farmaci sono stati assunti o mancati. I giorni vengono evidenziati visivamente per facilitare l'identificazione di eventuali lacune nella terapia.
 
-![Calendario](images/calendar.png)
+<img src="images/calendar.png" alt="Calendario" width="300">
 
-### Dashboard caregiver
+#### Contatti
+
+Interfaccia per la gestione dei contatti del paziente, inclusi medici e farmacisti di riferimento.
+
+<img src="images/contacts.png" alt="Contatti" width="300">
+
+#### Farmaco Check (validazione)
+
+Tramite la fotocamera del dispositivo è possibile avviare una scansione per identificare un farmaco. Durante la fase di validazione, l'app verifica l'autenticità del farmaco scansionato.
+
+<img src="images/farmaco_check_validating.png" alt="Farmaco Check - validazione in corso" width="300">
+
+#### Farmaco Check (riconosciuto)
+
+Dopo la validazione, viene mostrata una scheda con le informazioni rilevanti del farmaco identificato. Questa funzione è pensata per semplificare la verifica e la registrazione delle assunzioni.
+
+<img src="images/farmaco_check_riconosciuto.png" alt="Farmaco Check - identificazione del farmaco" width="300">
+
+---
+
+### Vista Caregiver
+
+#### Dashboard caregiver
 
 Il caregiver ha una panoramica sui pazienti assistiti, monitora l'aderenza di ciascuno e può verificare lo stato delle assunzioni giornaliere.
 
-![Dashboard caregiver](images/caregiver_home.png)
+<img src="images/caregiver_home.png" alt="Dashboard caregiver" width="300">
 
-### Statistiche per il caregiver
+#### Statistiche per il caregiver
 
 Il caregiver può visualizzare, paziente per paziente, l'andamento della pressione sanguigna negli ultimi sette giorni e l'aderenza settimanale ai farmaci. Ogni farmaco è tracciato giorno per giorno, con un riepilogo visivo immediato.
 
-![Statistiche caregiver](images/statistiche_caregiver.png)
+<img src="images/statistiche_caregiver.png" alt="Statistiche caregiver" width="300">
 
-### Farmaco Check (scansione)
+#### Opzioni caregiver
 
-Tramite la fotocamera del dispositivo è possibile avviare una scansione per identificare un farmaco. Dopo la scansione, viene mostrata una scheda con le informazioni rilevanti. Questa funzione è pensata per semplificare la verifica e la registrazione delle assunzioni.
+Il caregiver può gestire le impostazioni e le preferenze per i pazienti assistiti.
 
-![Farmaco Check - identificazione del farmaco](images/farmaco_check_riconosciuto.png)
+<img src="images/caregiver_options.png" alt="Opzioni caregiver" width="300">
 
 ---
 
@@ -88,9 +114,29 @@ Tramite la fotocamera del dispositivo è possibile avviare una scansione per ide
 
 ## Tecnologie utilizzate
 
-**[Angular](https://angular.dev/)** è stato scelto come framework principale perché HealthApp è una Single Page Application (SPA): invece di ricaricare l'intera pagina ad ogni click, l'applicazione aggiorna dinamicamente solo la parte di schermata necessaria, rendendo la navigazione tra le varie sezioni (login, home, calendario, area caregiver) rapida e fluida. Angular è basato su **[TypeScript](https://www.typescriptlang.org/)**, un linguaggio che aggiunge controlli aggiuntivi durante lo sviluppo e aiuta a individuare errori prima ancora di eseguire il codice — utile in un contesto dove la correttezza dei dati mostrati all'utente è importante.
+**[Angular](https://angular.dev/)** è stato scelto come framework principale perché HealthApp è una Single Page Application (SPA): invece di ricaricare l'intera pagina ad ogni click, l'applicazione aggiorna dinamicamente solo la parte di schermata necessaria, rendendo la navigazione tra le varie sezioni (login, home, calendario, area caregiver) rapida e fluida. Ad esempio, la sintassi `(click)` collega direttamente un bottone HTML a un metodo TypeScript:
+
+```html
+<button class="btn-primary" (click)="loginAsPatient()">Paziente</button>
+```
+
+Mentre `*ngIf` mostra o nasconde elementi dell'interfaccia in base allo stato, senza toccare il DOM manualmente:
+
+```html
+<app-farmaco-check *ngIf="showFarmacoCheck" (closed)="showFarmacoCheck = false">
+</app-farmaco-check>
+```
+
+Angular è basato su **[TypeScript](https://www.typescriptlang.org/)**, un linguaggio che aggiunge controlli aggiuntivi durante lo sviluppo e aiuta a individuare errori prima ancora di eseguire il codice — utile in un contesto dove la correttezza dei dati mostrati all'utente è importante. Ad esempio, il ruolo dell'utente è tipizzato in modo che sia impossibile assegnare un valore non valido:
+
+```typescript
+export type UserRole = 'patient' | 'caregiver';
+private role = signal<UserRole>('patient');
+```
 
 Per lo stile grafico è stato utilizzato **[Bootstrap](https://getbootstrap.com/)**, una libreria che permette di costruire interfacce responsive e personalizzabili con semplicità. Bootstrap è inoltre lo standard adottato nelle linee guida di design della Pubblica Amministrazione italiana, il che lo rende una scelta coerente per applicazioni sanitarie destinate a un contesto nazionale.
+
+Per le icone è stato utilizzato **[Material Icons](https://fonts.google.com/icons)** di Google, che offre una vasta raccolta di icone vettoriali ottimizzate per interfacce web moderne e accessibili.
 
 ---
 
